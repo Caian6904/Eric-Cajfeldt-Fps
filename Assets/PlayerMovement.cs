@@ -48,11 +48,13 @@ public class PlayerMovement : MonoBehaviour
         if (ShiftSpeed)
         {
             speed = 15f;
+            jumpHeight = 4f;
         }
 
         if (!ShiftSpeed)
         {
             speed = 10f;
+            jumpHeight = 3.5f;
         }
     }
 }
