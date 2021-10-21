@@ -7,17 +7,24 @@ public class GunScript : MonoBehaviour
     public float range = 100f;
     public float fireRate = 15f;
     public float impactForce = 30f;
+    AudioSource ShootingSound;
 
     public Camera fpsCam;
     public ParticleSystem MuzzleFlash;
 
     private float nextTimeToFire = 0f;
 
+    private void Start()
+    {
+        ShootingSound = GetComponent<AudioSource>();
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
+            ShootingSound.Play();
             nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
         }
