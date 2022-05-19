@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         ShiftSpeed = Input.GetKey("left shift") && (!Input.GetKey("s"));
+ 
 
         if(isGrounded && velocity.y < 0)
         {
@@ -60,5 +61,6 @@ public class PlayerMovement : MonoBehaviour
             jumpHeight = 3.5f;
         }
     
+       
     }
 }
