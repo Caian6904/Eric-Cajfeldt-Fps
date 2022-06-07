@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         ShiftSpeed = Input.GetKey("left shift") && (!Input.GetKey("s"));
  
-
+        //Movement scriptet
         if(isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
@@ -38,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
 
+        //Jump scriptet
+
         if(Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -48,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
 
+        //Scriptet för att sprinta
 
         if (ShiftSpeed)
         {
